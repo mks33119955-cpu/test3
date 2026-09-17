@@ -151,7 +151,6 @@ section{padding:90px 0}
 .route small{color:var(--muted);margin-top:6px}
 .route-cta{margin-top:16px;font-size:13px;font-weight:700;color:var(--sky-dark)}
 
-/* Плашка «Другие направления» */
 .route.more{
   background:linear-gradient(135deg,#0b2048,#163b82);
   color:#fff;border:0;
@@ -224,19 +223,49 @@ section{padding:90px 0}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq .answer{padding:0 22px 20px;color:var(--muted);font-size:15px}
 
-.footer{border-top:1px solid var(--line);padding:40px 0 28px;background:#fff}
-.foot{display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap}
-.footer .logo{width:200px}
-.contact{display:grid;gap:6px;font-size:14px}
-.contact a:hover{color:var(--sky-dark)}
-.contact strong{font-size:15px}
-.qr{
-  width:110px;height:110px;border-radius:12px;background:var(--pale);
-  display:grid;place-items:center;padding:8px;
+/* Footer */
+.footer{
+  border-top:1px solid var(--line);
+  padding:56px 0 28px;
+  background:#fff;
 }
+.foot{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:40px;
+  align-items:start;
+}
+.foot-left .logo{width:200px;margin-bottom:18px}
+.foot-tagline{
+  color:var(--muted);font-size:14px;max-width:340px;margin:0;
+}
+.foot-contacts{
+  display:grid;gap:14px;min-width:280px;
+}
+.foot-label{
+  font-size:11px;font-weight:800;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:4px;
+}
+.foot-contacts .company{
+  font-weight:800;font-size:16px;color:var(--navy);
+  margin:0 0 6px;line-height:1.3;
+}
+.foot-row{
+  display:flex;align-items:center;gap:10px;
+  font-size:15px;color:var(--navy);
+}
+.foot-row svg{
+  width:18px;height:18px;flex:0 0 18px;
+  stroke:var(--sky-dark);stroke-width:1.8;fill:none;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+.foot-row a:hover{color:var(--sky-dark)}
+.foot-row .val{font-weight:600}
 .copy{
-  font-size:12px;color:var(--muted);margin-top:24px;padding-top:20px;
-  border-top:1px solid var(--line);display:flex;justify-content:space-between;
+  font-size:12px;color:var(--muted);
+  margin-top:44px;padding-top:22px;
+  border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;
   gap:16px;flex-wrap:wrap;
 }
 
@@ -277,6 +306,8 @@ section{padding:90px 0}
   .hero-trust{gap:20px}
   .hero-trust b{font-size:20px}
   .steps{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr;gap:32px}
+  .foot-contacts{min-width:0}
 }
 @media (max-width:520px){
   :root{--logo-w:140px}
@@ -285,9 +316,10 @@ section{padding:90px 0}
   .route .cities{min-height:0}
   .hero{min-height:540px}
   .problem{padding:22px}
-  .footer .logo{width:150px}
+  .foot-left .logo{width:170px}
   .form-grid{grid-template-columns:1fr}
   .hero-cta .btn{width:100%}
+  .copy{flex-direction:column;gap:8px}
 }
 </style>
 </head>
@@ -572,23 +604,36 @@ section{padding:90px 0}
 <footer id="contacts" class="footer">
   <div class="wrap">
     <div class="foot">
-      <a href="/" aria-label="ТК Грузовая Компания — на главную">
-        <img class="logo" src="img/logo.png" alt="Логотип ТК Грузовая Компания"
+      <div class="foot-left">
+        <img class="logo" src="img/logo.png" alt="ТК Грузовая Компания"
              onerror="this.style.display='none';this.parentNode.insertAdjacentHTML('beforeend','<div class=&quot;brand-text&quot;>ТК ГРУЗОВАЯ<small>Транспортная компания РФ</small></div>')">
-      </a>
-      <div class="contact">
-        <strong>ООО «ТК Грузовая Компания»</strong>
-        <a href="mailto:info@tk-gk.ru">info@tk-gk.ru</a>
-        <a href="https://tk-gk.ru/" target="_blank" rel="noopener noreferrer">tk-gk.ru</a>
-        <a href="tel:+79231148650">+7 923 114-86-50</a>
+        <p class="foot-tagline">Экспресс-доставка сборных грузов по России. Работаем с 2012 года.</p>
       </div>
-      <div class="qr" aria-label="QR-код">
-        <img src="img/qr.png" alt="QR-код" width="110" height="110"
-             onerror="this.parentNode.innerHTML='QR-код';this.parentNode.style.fontSize='12px';this.parentNode.style.color='#5a6b88';this.parentNode.style.textAlign='center'">
+
+      <div class="foot-contacts">
+        <div class="foot-label">Контакты</div>
+        <div class="company">ООО «ТК Грузовая Компания»</div>
+
+        <div class="foot-row">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+          <a class="val" href="mailto:info@tk-gk.ru">info@tk-gk.ru</a>
+        </div>
+
+        <div class="foot-row">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>
+          <a class="val" href="https://tk-gk.ru/" target="_blank" rel="noopener noreferrer">tk-gk.ru</a>
+        </div>
+
+        <div class="foot-row">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0122 16.92z"/></svg>
+          <a class="val" href="tel:+79231148650">+7 923 114-86-50</a>
+        </div>
       </div>
     </div>
+
     <div class="copy">
       <span>© ТК Грузовая Компания. Условия и стоимость согласовываются индивидуально.</span>
+      <a href="https://tk-gk.ru/" target="_blank" rel="noopener noreferrer">tk-gk.ru</a>
     </div>
   </div>
 </footer>
