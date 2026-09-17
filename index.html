@@ -17,6 +17,7 @@
   --muted:#5a6b88;
   --pale:#f3f7fc;
   --line:#e3eaf4;
+  --logo-w:200px; /* ширина логотипа в шапке */
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -39,9 +40,17 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 /* Header */
 .top{
   display:flex;align-items:center;justify-content:space-between;
-  gap:20px;padding:18px 0;position:relative;z-index:100;
+  gap:20px;padding:16px 0;position:relative;z-index:100;
 }
-.logo{width:180px;height:auto;max-width:50%}
+.logo{width:var(--logo-w);height:auto;max-width:50%;object-fit:contain}
+.brand-text{
+  font-weight:900;font-size:18px;letter-spacing:-.03em;
+  color:var(--navy);line-height:1.1;
+}
+.brand-text small{
+  display:block;font-size:10px;font-weight:600;letter-spacing:.12em;
+  color:var(--muted);text-transform:uppercase;margin-top:2px;
+}
 .nav{display:flex;gap:22px;align-items:center;font-size:14px;font-weight:600}
 .nav a:hover{color:var(--sky-dark)}
 .head-actions{display:flex;align-items:center;gap:16px}
@@ -271,7 +280,7 @@ section{padding:90px 0}
   .route .cities{min-height:0}
   .hero{min-height:540px}
   .problem{padding:22px}
-  .logo{width:150px}
+  .logo{width:160px}
   .form-grid{grid-template-columns:1fr}
   .hero-cta .btn{width:100%}
 }
@@ -282,9 +291,9 @@ section{padding:90px 0}
 <a href="#main" style="position:absolute;left:-9999px">К содержимому</a>
 
 <header class="wrap top">
-  <a href="/" aria-label="На главную">
+  <a href="/" aria-label="ТК Грузовая Компания — на главную">
     <img class="logo" src="img/logo.png" alt="ТК Грузовая Компания"
-         onerror="this.style.display='none';this.parentNode.insertAdjacentHTML('beforeend','<div style=&quot;font-weight:900;font-size:18px;letter-spacing:-.03em&quot;>ТК ГРУЗОВАЯ</div>')">
+         onerror="this.style.display='none';this.parentNode.insertAdjacentHTML('beforeend','<div class=&quot;brand-text&quot;>ТК ГРУЗОВАЯ<small>Транспортная компания РФ</small></div>')">
   </a>
 
   <nav class="nav" id="nav" aria-label="Основная навигация">
@@ -558,9 +567,9 @@ section{padding:90px 0}
 <footer id="contacts" class="footer">
   <div class="wrap">
     <div class="foot">
-      <a href="/" aria-label="На главную">
+      <a href="/" aria-label="ТК Грузовая Компания — на главную">
         <img class="logo" src="img/logo.png" alt="Логотип ТК Грузовая Компания"
-             onerror="this.style.display='none';this.parentNode.insertAdjacentHTML('beforeend','<div style=&quot;font-weight:900&quot;>ТК ГРУЗОВАЯ</div>')">
+             onerror="this.style.display='none';this.parentNode.insertAdjacentHTML('beforeend','<div class=&quot;brand-text&quot;>ТК ГРУЗОВАЯ<small>Транспортная компания РФ</small></div>')">
       </a>
       <div class="contact">
         <strong>ООО «ТК Грузовая Компания»</strong>
