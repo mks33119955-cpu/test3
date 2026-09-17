@@ -78,11 +78,17 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 
 /* Hero */
 .hero{
-  background:linear-gradient(105deg,rgba(11,32,72,.94),rgba(11,32,72,.78)),var(--navy);
-  min-height:600px;display:grid;place-items:center;text-align:center;color:#fff;
+  background:
+    linear-gradient(105deg,
+      rgba(11,32,72,.96) 0%,
+      rgba(11,32,72,.88) 35%,
+      rgba(11,32,72,.70) 65%,
+      rgba(11,32,72,.45) 100%),
+    url('img/hero.jpg') center 55%/cover no-repeat,
+    var(--navy);
+  min-height:640px;display:grid;place-items:center;text-align:center;color:#fff;
   padding:80px 0;
 }
-.hero.has-image{background-image:linear-gradient(105deg,rgba(11,32,72,.94),rgba(11,32,72,.78)),url('img/hero.jpg');background-size:cover;background-position:center}
 .eyebrow{text-transform:uppercase;letter-spacing:.17em;font-size:12px;font-weight:800;color:var(--sky);margin:0}
 h1{font-size:clamp(36px,5.5vw,72px);line-height:1.08;letter-spacing:-.05em;margin:20px auto;max-width:1000px;font-weight:900}
 h2{font-size:clamp(28px,3.8vw,44px);letter-spacing:-.04em;line-height:1.15;margin:12px 0 18px;font-weight:800}
@@ -124,6 +130,7 @@ section{padding:90px 0}
   display:grid;place-items:center;font-size:12px;font-weight:900;
 }
 
+/* Routes */
 .routes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
 .route{
   border:1px solid var(--line);border-radius:16px;padding:26px;background:#fff;
@@ -134,6 +141,18 @@ section{padding:90px 0}
 .route strong{display:block;font-size:42px;letter-spacing:-.05em;color:#1668ad;margin-top:14px;line-height:1}
 .route small{color:var(--muted);margin-top:6px}
 .route-cta{margin-top:16px;font-size:13px;font-weight:700;color:var(--sky-dark)}
+
+/* Плашка «Другие направления» */
+.route.more{
+  background:linear-gradient(135deg,#0b2048,#163b82);
+  color:#fff;border:0;
+}
+.route.more .cities{color:#fff}
+.route.more strong{color:var(--sky);font-size:24px;letter-spacing:-.02em;line-height:1.2;margin-top:14px}
+.route.more small{color:#c7d8f2}
+.route.more .route-cta{color:var(--sky)}
+.route.more:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(11,32,72,.25)}
+
 .note{color:var(--muted);font-size:12px;margin-top:22px}
 
 .industries{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
@@ -227,7 +246,16 @@ section{padding:90px 0}
   .burger{display:block}
   .head-phone{display:none}
   .head-actions .btn{display:none}
-  .hero{min-height:540px;padding:70px 0}
+  .hero{
+    min-height:560px;padding:70px 0;
+    background:
+      linear-gradient(180deg,
+        rgba(11,32,72,.92) 0%,
+        rgba(11,32,72,.82) 50%,
+        rgba(11,32,72,.92) 100%),
+      url('img/hero.jpg') center 55%/cover no-repeat,
+      var(--navy);
+  }
   .grid,.solution,.offer,.form-card{grid-template-columns:1fr}
   .solution{padding:22px;gap:22px}
   .offer{padding:28px;gap:18px}
@@ -241,7 +269,7 @@ section{padding:90px 0}
   .wrap{width:min(100% - 28px,1160px)}
   .routes{grid-template-columns:1fr}
   .route .cities{min-height:0}
-  .hero{min-height:520px}
+  .hero{min-height:540px}
   .problem{padding:22px}
   .logo{width:150px}
   .form-grid{grid-template-columns:1fr}
@@ -386,6 +414,13 @@ section{padding:90px 0}
           <strong>5 дней</strong>
           <small>Экспресс-маршрут</small>
           <a class="route-cta" href="#offer">Запросить →</a>
+        </article>
+
+        <article class="route more">
+          <div class="cities">Другие направления</div>
+          <strong>По запросу</strong>
+          <small>Подберём маршрут под ваш груз</small>
+          <a class="route-cta" href="#offer">Оставить заявку →</a>
         </article>
       </div>
 
@@ -564,15 +599,6 @@ section{padding:90px 0}
       document.body.style.overflow = '';
     });
   });
-})();
-
-// Проверка наличия hero-картинки — если есть, включаем фон
-(function(){
-  var img = new Image();
-  img.onload = function(){
-    document.querySelector('.hero').classList.add('has-image');
-  };
-  img.src = 'img/hero.jpg';
 })();
 </script>
 
